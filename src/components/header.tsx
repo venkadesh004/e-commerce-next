@@ -16,7 +16,7 @@ export default function Header() {
     async function getHeaderInfo() {
         try {
             await getHeaderRes().then(res => {
-                // console.log(res);
+                console.log(res);
                 setUrl(res.logo.url);
                 setLinks(res.header_links);
                 setAuth(res.auth);

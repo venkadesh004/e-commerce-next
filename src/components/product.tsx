@@ -62,15 +62,21 @@ export default function Product({ entryUrl }: { entryUrl: string }) {
                     </div>
                 </div>
             </div>
-            <div className='flex w-[70%]'>
-                {product.rating.map((value, index) => {
-                    return (
-                        <div key={index}>
-                            <p>{value.stars.value}</p>
-                            <p>{value.review}</p>
-                        </div>
-                    );
-                })}
+            <div>
+                <div>
+                    <input type="text" placeholder='Enter a review' />
+                </div>
+                <div className='flex w-[70%]'>
+                    {product.rating.map((value, index) => {
+                        return (
+                            <div key={index}>
+                                <p>{value.stars.value}</p>
+                                <p>{value.review}</p>
+                            </div>
+                        );
+                    })}
+
+                </div>
             </div>
         </div>
     )

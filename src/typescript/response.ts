@@ -1,4 +1,4 @@
-import { Auth, FooterBlock, Rating, SaleGroup, Specials, Specifications } from "./component";
+import { Auth, FooterBlock, ProductReference, Rating, SaleGroup, Specials, Specifications } from "./component";
 import { Img, Link } from "./pages";
 
 export type HeaderRes = {
@@ -31,6 +31,11 @@ export type FooterRes = {
     footer_block: FooterBlock[];
 };
 
+export type Filter = {
+    uid: string;
+    title: string;
+};
+
 export type Products = {
     uid: string;
     title: string;
@@ -41,14 +46,13 @@ export type Products = {
     seller_desp: string;
     specifications: Specifications[];
     rating: Rating[];
-};
-
-export type ProductReference = {
-    uid: string;
+    reference: Filter[];
+    referenceDevice: string;
 };
 
 export type ProductPage = {
     uid: string;
     title: string;
+    reference_filter: Filter[];
     reference: ProductReference[];
 };

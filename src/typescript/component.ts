@@ -1,4 +1,5 @@
 import { Img, Link } from "./pages";
+import { Filter } from "./response";
 
 export type Auth = {
     uid: string;
@@ -18,6 +19,8 @@ export type SaleGroup = {
     image: Img;
     link: Link;
     para: string;
+    reference_device: Filter[];
+    referedDevice: string;
 };
 
 export type LinksBlock = {
@@ -41,4 +44,8 @@ export type Rating = {
         value: number
     };
     review: string;
+};
+
+export type ProductReference = {
+    uid: string;
 };

@@ -3,7 +3,7 @@
 import { FooterRes, HeaderRes, MainPageRes, MainPageSalesRes, Products } from "../typescript/response";
 import {getEntry, getEntryByUrl} from '../sdk/entry';
 
-export const getHeaderRes = async (): Promise<HeaderRes | any> => {
+export const getHeaderRes = async (): Promise<HeaderRes> => {
     const response = await getEntry({
         contentTypeUid: "e_commerce_header",
         referenceFieldPath: [],

@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from 'react'
 import { getHeaderRes } from '../helper';
-import { Img, Link } from '../typescript/pages';
+import { Link } from '../typescript/pages';
 import { Auth } from '../typescript/component';
+import Image from 'next/image';
 
 export default function Header() {
 
@@ -44,7 +45,7 @@ export default function Header() {
         <div className='w-full'>
             <div className='w-full h-[60px] flex items-center p-2 justify-between'>
                 <div className='w-[30%] h-full flex items-center justify-between'>
-                    <img src={url} alt="Logo" className='h-full' />
+                    <Image src={url} alt="Logo" className='h-full' />
                     <div className='flex items-center justify-evenly w-[100%]'>
                         {links.map((value, index) => {
                             return (

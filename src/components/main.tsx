@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { getMainPageRes } from '../helper';
 import { Link } from '../typescript/pages';
 import { Specials } from '../typescript/component';
+import Image from 'next/image';
 
 export default function Main() {
 
@@ -63,14 +64,14 @@ export default function Main() {
                     </div>
                 </div>
                 <div className='w-[50%] flex items-center justify-center'>
-                    <img src={imageUrl} alt="" className='w-[50%]' />
+                    <Image src={imageUrl} alt="" className='w-[50%]' />
                 </div>
             </div>
             <div className='flex items-center justify-center gap-10'>
                 {specials.map((value, index) => {
                     return (
                         <div key={index} className='flex items-center justify-evenly w-[300px] border-2 p-5 rounded'>
-                            <img src={value.special_image.url} alt="" className='h-[30px]' />
+                            <Image src={value.special_image.url} alt="" className='h-[30px]' />
                             <div>
                                 <p className='text-[20px] font-bold'>{value.special_head}</p>
                                 <p className='text-[15px]'>{value.special_para}</p>

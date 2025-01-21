@@ -2,7 +2,6 @@
 
 import { getProduct } from '@/helper'
 import React, { useEffect } from 'react'
-import { usePathname } from 'next/navigation';
 
 export default function Product({entryUrl}: {entryUrl: string}) {
 

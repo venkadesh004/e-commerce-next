@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { getFooterPageRes } from '../helper';
 import { FooterBlock } from '../typescript/component';
+import Image from 'next/image';
 
 export default function Footer() {
 
@@ -40,7 +41,7 @@ export default function Footer() {
                 if (value.image_block !== undefined) {
                     return (
                         <div key={index} className='h-full w-[30%] flex items-center justify-center'>
-                            <img className='h-[200px]' src={value.image_block.image.url} alt="" />
+                            <Image className='h-[200px]' src={value.image_block.image.url} alt="" />
                         </div>
                     );
                 } else {

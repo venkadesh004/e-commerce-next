@@ -49,9 +49,9 @@ export const getProduct = async (entryUrl: string): Promise<Products> => {
         entryUrl,
         referenceFieldPath: [],
         jsonRtePath: []
-    }) as Products;
+    }) as Products[];
 
-    console.log(response);
+    // console.log(response);
 
-    return response;
+    return response[0];
 }

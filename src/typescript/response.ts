@@ -33,7 +33,7 @@ export type FooterRes = {
 
 export type Products = {
     uid: string;
-    product_name: string;
+    title: string;
     url: string;
     image: Img;
     product_desp: string;

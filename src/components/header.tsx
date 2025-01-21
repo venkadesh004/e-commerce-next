@@ -45,7 +45,7 @@ export default function Header() {
         <div className='w-full'>
             <div className='w-full h-[60px] flex items-center p-2 justify-between'>
                 <div className='w-[30%] h-full flex items-center justify-between'>
-                    <Image src={url} alt="Logo" className='h-full' />
+                    <Image src={url} alt="Logo" className='h-full' width={50} height={50} />
                     <div className='flex items-center justify-evenly w-[100%]'>
                         {links.map((value, index) => {
                             return (

@@ -41,7 +41,7 @@ export default function Footer() {
                 if (value.image_block !== undefined) {
                     return (
                         <div key={index} className='h-full w-[30%] flex items-center justify-center'>
-                            <Image className='h-[200px]' src={value.image_block.image.url} alt="" />
+                            <Image className='h-[200px]' width={200} height={200} src={value.image_block.image.url} alt="" />
                         </div>
                     );
                 } else {

@@ -37,6 +37,8 @@ export type Specifications = {
 };
 
 export type Rating = {
-    stars: number;
+    stars: {
+        value: number
+    };
     review: string;
 };

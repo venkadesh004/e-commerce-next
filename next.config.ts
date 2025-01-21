@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['images.contentstack.io']
+  }
 };
 
 export default nextConfig;

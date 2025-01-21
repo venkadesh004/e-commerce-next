@@ -9,7 +9,7 @@ export default function Page() {
     return (
         <div>
             <Header />
-            <AllProducts getFilter={window.localStorage.getItem('getFilter') === null ? '' : window.localStorage.getItem('getFilter')} />
+            {typeof window !== "undefined" ? <AllProducts getFilter={window.localStorage.getItem('getFilter') === null ? '' : window.localStorage.getItem('getFilter')} /> : <AllProducts getFilter={''} />}
             <Footer />
         </div>
     )

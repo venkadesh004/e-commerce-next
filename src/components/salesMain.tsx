@@ -49,7 +49,9 @@ export default function SalesMain() {
                 return (
                     <button key={index} onClick={() => {
                         window.open(value.link.href);
-                        window.localStorage.setItem('getFilter', value.referedDevice);
+                        if (typeof window !== "undefined") {
+                            window.localStorage.setItem('getFilter', value.referedDevice);
+                        }
                     }} className='relative w-[400px] h-[400px]'>
                         <img className='absolute top-0 left-0 h-full w-full' src={value.image.url} alt="" />
                         <h1 className='absolute top-0 left-0 text-white font-bold text-5xl w-full h-full text-center flex items-center justify-center'>{value.para}</h1>

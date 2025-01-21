@@ -1,7 +1,7 @@
 'use client';
 
-import { FooterRes, HeaderRes, MainPageRes, MainPageSalesRes, Products } from "../typescript/response";
-import {getEntry, getEntryByUrl} from '../sdk/entry';
+import { FooterRes, HeaderRes, MainPageRes, MainPageSalesRes, ProductPage, Products } from "../typescript/response";
+import {getEntry, getEntryByUrl, getReferenceData} from '../sdk/entry';
 
 export const getHeaderRes = async (): Promise<HeaderRes> => {
     const response = await getEntry({
@@ -54,4 +54,23 @@ export const getProduct = async (entryUrl: string): Promise<Products> => {
     // console.log(response);
 
     return response[0];
+}
+
+export const getProductPage = async (): Promise<ProductPage> => {
+    const response = await getEntry({
+        contentTypeUid: "products_page",
+        jsonRtePath: [],
+        referenceFieldPath: ["product_content_type"]
+    }) as ProductPage[][];
+
+    return response[0][0];
+}
+
+export const getReferenceProduct = async (entryUid: string): Promise<Products> => {
+    const response = await getReferenceData({
+        contentTypeUid: "product_content_type",
+        entryUid: entryUid
+    }) as Products;
+
+    return response;
 }

@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import Product from "@/components/product";
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 export default function Products() {
 
@@ -10,7 +12,9 @@ export default function Products() {
 
   return (
     <div>
+      <Header />
       <Product entryUrl={entryUrl} />
+      <Footer />
     </div>
   )
 }

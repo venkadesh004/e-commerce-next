@@ -3,6 +3,8 @@
 import { getProduct } from '@/helper'
 import { Products } from '@/typescript/response';
 import React, { useEffect, useState } from 'react'
+import Icon from '@/assets/Icon.png';
+import Image from 'next/image';
 
 export default function Product({ entryUrl }: { entryUrl: string }) {
 
@@ -10,9 +12,7 @@ export default function Product({ entryUrl }: { entryUrl: string }) {
     const [loading, setLoading] = useState(true);
 
     async function getProductInfo() {
-        console.log(entryUrl);
         await getProduct(entryUrl).then(res => {
-            console.log(res);
             setProduct(res);
             setLoading(false);
         }).catch(err => {
@@ -33,7 +33,7 @@ export default function Product({ entryUrl }: { entryUrl: string }) {
     }
 
     return (
-        <div className='flex flex-col items-center w-full'>
+        <div className='flex flex-col items-center w-full p-10'>
             <div className='flex items-center w-full justify-between'>
                 <div className='w-[50%] flex items-center justify-center'>
                     <img className='w-[50%]' src={product.image.url} alt="" />
@@ -46,12 +46,19 @@ export default function Product({ entryUrl }: { entryUrl: string }) {
                         <ul className='border-2 w-[60%] p-5 mt-[30px]'>
                             {product.specifications.map((value, index) => {
                                 return (
-                                    <li key={index}>
+                                    <li key={index} className='flex items-center gap-2 mt-[5px]'>
+                                        <Image src={Icon} width={20} height={20} alt="" />
                                         {value.enter_specifications}
                                     </li>
                                 );
                             })}
                         </ul>
+                    </div>
+                    <div className='flex items-center w-[50%] justify-between mt-[20px]'>
+                        <h1>Price: Rs. {product.price}</h1>
+                        <button className='p-2 bg-black text-white rounded'>
+                            Order Now
+                        </button>
                     </div>
                 </div>
             </div>

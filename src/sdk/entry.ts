@@ -15,6 +15,11 @@ type GetEntry = {
   jsonRtePath: string[] | undefined;
 };
 
+type GetReferenceData = {
+  contentTypeUid: string;
+  entryUid: string;
+};
+
 type GetEntryByUrl = {
   entryUrl: string | undefined;
   contentTypeUid: string;
@@ -29,7 +34,7 @@ type GetEntryByUrl = {
 
 let customHostBaseUrl = process.env.NEXT_PUBLIC_CONTENTSTACK_API_HOST as string;
 
-customHostBaseUrl = customHostBaseUrl? customHostUrl(customHostBaseUrl): '';
+customHostBaseUrl = customHostBaseUrl ? customHostUrl(customHostBaseUrl) : '';
 
 // SDK initialization
 const Stack = initializeContentStackSdk();
@@ -42,10 +47,10 @@ if (!!customHostBaseUrl && isValidCustomHostUrl(customHostBaseUrl)) {
 // Setting LP if enabled
 ContentstackLivePreview.init({
   stackSdk: Stack,
-  clientUrlParams:{
+  clientUrlParams: {
     host: process.env.NEXT_PUBLIC_CONTENTSTACK_APP_HOST,
   },
-  ssr:false,
+  ssr: false,
 })?.catch((err) => console.error(err));
 
 export const { onEntryChange } = ContentstackLivePreview;
@@ -89,6 +94,28 @@ export const getEntry = ({
       );
   });
 };
+
+export const getReferenceData = ({
+  contentTypeUid,
+  entryUid
+}: GetReferenceData) => {
+  return new Promise((resolve, reject) => {
+    const Query = Stack.ContentType(contentTypeUid).Entry(entryUid).toJSON();
+    // Query.includeReference(['products_page']);
+    Query
+      .fetch()
+      .then(
+        (result) => {
+          console.log(result)
+          resolve(result);
+        },
+        (error) => {
+          console.log(error);
+          reject(error);
+        }
+      )
+  });
+}
 
 /**
  *fetches specific entry from a content-type

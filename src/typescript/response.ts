@@ -36,8 +36,19 @@ export type Products = {
     title: string;
     url: string;
     image: Img;
+    price: number;
     product_desp: string;
     seller_desp: string;
     specifications: Specifications[];
     rating: Rating[];
+};
+
+export type ProductReference = {
+    uid: string;
+};
+
+export type ProductPage = {
+    uid: string;
+    title: string;
+    reference: ProductReference[];
 };

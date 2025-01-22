@@ -1,4 +1,5 @@
 'use client';
+
 import axios from 'axios';
 import React from 'react'
 
@@ -6,22 +7,32 @@ export default function Order() {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        const user = {
-            email: e.target.email.value,
-            name: e.target.name.value,
-            phone: e.target.phone.value,
-            quantity: e.target.quantity.value,
-            address: e.target.address.value,
-            product: window.localStorage.getItem('selectedProduct')
-        };
-       axios.post('https://app.contentstack.com/automations-api/run/537d1114a6374ea0a2579b0673a29c16', user).then(res => {
-        console.log(res);
-        if (res.status === 200) {
-            alert("Order Sent!");
+        if (typeof window !== undefined) {
+            const user = {
+                email: e.target.email.value,
+                name: e.target.name.value,
+                phone: e.target.phone.value,
+                quantity: e.target.quantity.value,
+                address: e.target.address.value,
+                product: window.localStorage.getItem('selectedProduct')
+            };
+            axios.post('https://app.contentstack.com/automations-api/run/537d1114a6374ea0a2579b0673a29c16', user).then(res => {
+                console.log(res);
+                if (res.status === 200) {
+                    alert("Order Sent!");
+                }
+            }).catch(err => {
+                console.log(err);
+            });
         }
-       }).catch(err => {
-        console.log(err);
-       });
+    }
+
+    if (typeof window !== undefined) {
+        return (
+            <div>
+                Loading..
+            </div>
+        );
     }
 
     return (

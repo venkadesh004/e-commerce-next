@@ -47,6 +47,7 @@ export type Products = {
     specifications: Specifications[];
     rating: Rating[];
     reference: Filter[];
+    stock: number;
     referenceDevice: string;
 };
 

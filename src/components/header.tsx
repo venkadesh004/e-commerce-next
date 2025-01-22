@@ -10,7 +10,6 @@ export default function Header() {
 
     const [url, setUrl] = useState('');
     const [links, setLinks] = useState([] as Link[]);
-    const [auth, setAuth] = useState([] as Auth[]);
     const [loading, setLoading] = useState(true);
 
     async function getHeaderInfo() {
@@ -19,7 +18,7 @@ export default function Header() {
                 console.log(res);
                 setUrl(res.logo.url);
                 setLinks(res.header_links);
-                setAuth(res.auth);
+                
                 setLoading(false);
             }).catch(err => {
                 console.log(err);
@@ -56,17 +55,7 @@ export default function Header() {
                         })}
                     </div>
                 </div>
-                <div className='w-[15%] flex items-center justify-evenly'>
-                    {auth.map((value, index) => {
-                        return (
-                            <button key={index} onClick={() => {
-                                window.open(value.auth_link.href);
-                            }} className={`${value.background_inverted ? 'text-white bg-black' : 'text-black bg-white'} w-[150px] h-[40px] rounded`}>
-                                {value.auth_link.title}
-                            </button>
-                        );
-                    })}
-                </div>
+                
             </div>
             <div className='w-full h-[2px] bg-gray-200'></div>
         </div>

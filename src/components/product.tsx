@@ -54,9 +54,13 @@ export default function Product({ entryUrl }: { entryUrl: string }) {
                             })}
                         </ul>
                     </div>
-                    <div className='flex items-center w-[50%] justify-between mt-[20px]'>
+                    <div className='flex items-center w-[70%] justify-between mt-[20px]'>
                         <h1>Price: Rs. {product.price}</h1>
-                        <button className='p-2 bg-black text-white rounded'>
+                        <h1>Available Units: {product.stock}</h1>
+                        <button className='p-2 bg-black text-white rounded' onClick={() => {
+                            window.localStorage.setItem('selectedProduct', product.title);
+                            window.open('/order');
+                        }}>
                             Order Now
                         </button>
                     </div>

@@ -44,7 +44,7 @@ export default function SalesMain() {
     }
 
     return (
-        <div className='flex items-center w-full justify-evenly mt-[100px]'>
+        <div className='flex xl:flex-row flex-col items-center w-full justify-evenly mt-[50px]'>
             {groups.map((value, index) => {
                 return (
                     <button key={index} onClick={() => {
@@ -52,7 +52,7 @@ export default function SalesMain() {
                         if (typeof window !== "undefined") {
                             window.localStorage.setItem('getFilter', value.referedDevice);
                         }
-                    }} className='relative w-[400px] h-[400px]'>
+                    }} className='relative sm:w-[400px] sm:h-[400px] w-[300px] h-[300px] mt-[50px]'>
                         <img className='absolute top-0 left-0 h-full w-full' src={value.image.url} alt="" />
                         <h1 className='absolute top-0 left-0 text-white font-bold text-5xl w-full h-full text-center flex items-center justify-center'>{value.para}</h1>
                     </button>

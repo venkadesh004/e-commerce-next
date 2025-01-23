@@ -35,15 +35,15 @@ export default function Order() {
 
     return (
         <div className='flex items-center justify-center w-full h-screen'>
-            <form action="" className='w-[500px] h-[700px] flex flex-col items-center justify-center gap-8 border-2' onSubmit={handleSubmit}>
+            <form action="" className='sm:w-[500px] w-full m-[20px] p-[20px] h-[700px] flex flex-col items-center justify-center gap-8 border-2' onSubmit={handleSubmit}>
                 <h1 className='text-4xl font-bold'>ORDER DETAILS</h1>
                 Product: {itemName}
-                <input type="text" placeholder='User Name' className='border-2 w-[400px] p-2' name='name' />
-                <input type="text" placeholder='User Email' className='border-2 w-[400px] p-2' name='email' />
-                <input type="text" placeholder='User Phone' className='border-2 w-[400px] p-2' name='phone' />
-                <input type="number" placeholder='Quantity' className='border-2 w-[400px] p-2' name='quantity' />
-                <textarea name="address" placeholder='Address' className='border-2 w-[400px] p-2'></textarea>
-                <button type='submit' className='w-[400px] p-2 bg-black text-white'>ORDER NOW</button>
+                <input type="text" placeholder='User Name' className='border-2 w-full p-2' name='name' />
+                <input type="text" placeholder='User Email' className='border-2 w-full p-2' name='email' />
+                <input type="text" placeholder='User Phone' className='border-2 w-full p-2' name='phone' />
+                <input type="number" placeholder='Quantity' className='border-2 w-full p-2' name='quantity' />
+                <textarea name="address" placeholder='Address' className='border-2 w-full p-2'></textarea>
+                <button type='submit' className='w-full p-2 bg-black text-white'>ORDER NOW</button>
             </form>
         </div>
     )

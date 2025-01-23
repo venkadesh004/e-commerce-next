@@ -48,11 +48,11 @@ export default function Main() {
     return (
         <div className='w-full'>
             <div className='w-full flex items-center justify-evenly'>
-                <div className='w-[50%] p-10'>
-                    <div className='w-full text-8xl font-black'>
+                <div className='xl:w-[50%] xl:p-10 w-full p-5'>
+                    <div className='w-full md:text-8xl sm:text-5xl text-3xl font-black'>
                         {mainHeading}
                     </div>
-                    <div className='w-full text-4xl font-normal mt-[50px]'>
+                    <div className='w-full md:text-4xl sm:text-3xl text-2xl font-normal md:mt-[50px] mt-[30px]'>
                         {mainPara}
                     </div>
                     <div>
@@ -63,14 +63,14 @@ export default function Main() {
                         </button>
                     </div>
                 </div>
-                <div className='w-[50%] flex items-center justify-center'>
+                <div className='hidden xl:w-[50%] xl:flex xl:items-center xl:justify-center'>
                     <img src={imageUrl} alt="" className='w-[50%]' />
                 </div>
             </div>
-            <div className='flex items-center justify-center gap-10'>
+            <div className='flex lg:flex-row flex-col items-center justify-center gap-10 mt-[50px]'>
                 {specials.map((value, index) => {
                     return (
-                        <div key={index} className='flex items-center justify-evenly w-[300px] border-2 p-5 rounded'>
+                        <div key={index} className='flex items-center justify-evenly sw-[300px] border-2 p-5 rounded'>
                             <img src={value.special_image.url} alt="" className='h-[30px]' />
                             <div>
                                 <p className='text-[20px] font-bold'>{value.special_head}</p>

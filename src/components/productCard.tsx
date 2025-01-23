@@ -8,7 +8,7 @@ export default function ProductCard({ data }: { data: Products }) {
     }
 
     return (
-        <div className='w-[300px] h-[300px] flex flex-col items-center p-5 border-2'>
+        <div className='sm:w-[300px] sm:h-[300px] w-[100%] flex flex-col items-center p-5 border-2'>
             <img className='h-[50%]' src={data.image.url} alt="" />
             <h1 className='mt-[10px] font-bold'>{data.title}</h1>
             <p className='text-[12px] text-start px-2'>{data.seller_desp}</p>

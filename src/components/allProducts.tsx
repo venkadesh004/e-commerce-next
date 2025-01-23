@@ -57,10 +57,10 @@ export default function AllProducts({getFilter}: {getFilter: string | null}) {
 
     return (
         <div className='w-full flex flex-col items-center'>
-            <div className='w-full flex items-center justify-evenly'>
+            <div className='w-full flex md:flex-row flex-col items-center justify-evenly'>
                 <input type="text" placeholder='Search Product' onChange={(e) => {
                     setSearchValue(e.target.value);
-                }} value={searchValue} className='w-[70%] mt-[20px] p-2 border' />
+                }} value={searchValue} className='sm:w-[70%] w-[90%] mt-[20px] p-2 border' />
                 <div className='mt-[20px]'>
                     <label>
                         Filter:

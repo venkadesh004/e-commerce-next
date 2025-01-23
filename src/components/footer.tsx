@@ -40,17 +40,17 @@ export default function Footer() {
             {footerBlock.map((value, index) => {
                 if (value.image_block !== undefined) {
                     return (
-                        <div key={index} className='h-full w-[30%] flex items-center justify-center'>
+                        <div key={index} className='hidden h-full w-[30%] md:flex items-center justify-center'>
                             <Image className='h-[200px]' width={200} height={200} src={value.image_block.image.url} alt="" />
                         </div>
                     );
                 } else {
                     return (
-                        <div key={index} className='text-white flex flex-col items-start gap-5 w-[25%]'>
-                            <h2>{value.links_block.link_title}</h2>
+                        <div key={index} className='text-white flex flex-col items-start gap-5 md:w-[25%] w-[30%]'>
+                            <h2 className='text-[12px] sm:text-[18px]'>{value.links_block.link_title}</h2>
                             {value.links_block.links.map((element, index2) => {
                                 return (
-                                    <a key={index2} href={element.href}>
+                                    <a key={index2} href={element.href} className='text-[10px] sm:text-[16px]'>
                                         {element.title}
                                     </a>
                                 );
